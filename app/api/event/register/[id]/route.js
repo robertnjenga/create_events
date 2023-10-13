@@ -1,7 +1,6 @@
 import Event from '@models/Event';
 import connect from '@utils/db';
 import { NextResponse } from 'next/server';
-// import { NextApiRequest, NextApiResponse } from 'next';
 import Attendee from '@models/Attendee';
 import nodemailer from 'nodemailer';
 import { transporter, mailOptions } from '@config/nodemailer';
@@ -82,6 +81,7 @@ const usedPasscodes = []; // Store used passcodes
 // };
 // export { handler as GET, handler as POST };
 
+
 export const POST = async (req, { params }) => {
   const { name, email } = await req.json();
   if (!name || !email) {
@@ -92,10 +92,9 @@ export const POST = async (req, { params }) => {
     await connect();
 
     // Find the existing event by ID
-    const existingEvent = await Event.findById(params.id);
-
-    if (!existingEvent)
-      return new NextResponse('Event not found', { status: 404 });
+    const event = await Event.findById(params.id).populate({
+      path: 'attendees'});
+    if (!event) return new NextResponse('Event not found', { status: 404 });
 
     // Generate a unique passcode for the attendee
     let passcode = generateUniquePasscode(8);
@@ -105,23 +104,27 @@ export const POST = async (req, { params }) => {
     await newAttendee.save();
 
     // Add  attendee to event's attendee list
-    existingEvent.attendees.push(newAttendee);
-    await existingEvent.save();
+    event.attendees.push(newAttendee);
+
+    await event.save();
 
     // send email with event details and passcode
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      pool: true,
+      service: 'hotmail',
+      port: 2525,
       auth: {
-        user: email,
-        pass,
+        user: 'njoro60@hotmail.com',
+        pass: process.env.EMAIL_PASSWORD,
       },
+      maxConnections: 1
     });
-// console.log(newAttendee);
+    // console.log(event.attendees);
     const mailOptions = {
-      from: email,
+      from: 'njoro60@hotmail.com',
       to: email,
       subject: 'Event Registration Confirmation',
-      text: `Thank you for registering for ${existingEvent.title} Your passcode is ${passcode}`,
+      text: `Thank you for registering for ${event.title} Your passcode is ${passcode}`,
     };
 
     transporter.sendMail({ ...mailOptions }, (error, info) => {
@@ -131,10 +134,10 @@ export const POST = async (req, { params }) => {
         console.log('Email sent: ' + info.response);
       }
     });
-
-    return new NextResponse(JSON.stringify(existingEvent), { status: 200 });
+    event.attendees.toObject();
+    return new NextResponse(JSON.parse(JSON.stringify(event)), { status: 200 });
   } catch (error) {
-    return new NextResponse('Bad Request', { status: 400 }); 
+    return new NextResponse('Bad Request', { status: 400 });
   }
 };
 

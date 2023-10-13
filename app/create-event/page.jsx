@@ -41,7 +41,7 @@ const CreateEventPage = () => {
     } finally {
       setSubmitting(false);
     }
-  };
+  }; 
   
   return (
     <Form

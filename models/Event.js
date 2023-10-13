@@ -1,5 +1,6 @@
 import   { Schema, model, models } from 'mongoose'; 
 
+
 const EventSchema = new Schema({
   creator: {
     type: Schema.Types.ObjectId,
@@ -28,6 +29,7 @@ const EventSchema = new Schema({
   attendees: [{
     type: Schema.Types.ObjectId,
     ref: 'Attendee',
+    required: true,
 }]
 },
 { timestamps: true}

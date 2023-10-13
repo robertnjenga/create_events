@@ -17,12 +17,19 @@ const Navbar = () => {
           width={30}
           height={30}
         />
-        <p className="logo_text">Create Events</p>
+        <p className="logo_text">Eventful</p>
       </Link>
       {/* {Desktop Navigation} */}
       <div className="sm:flex hidden gap-5">
-        <Link href="/create-event" className='nav_link'>Create Event</Link>
-        <Link href="/dashboard" className='nav_link'>View Events</Link>
+        <Link href="/create-event" className="nav_link">
+          Create Event
+        </Link>
+        <Link href="/dashboard" className="nav_link">
+          View Events
+        </Link>
+        <Link href="/profile" className="nav_link">
+          My Profile
+        </Link>
 
         {session?.user ? (
           <div className="flex gap-3 md:gap-5 text-gray-700">
@@ -71,6 +78,20 @@ const Navbar = () => {
             />
             {toggleDropdown && (
               <div className="dropdown">
+              <Link
+                  href="/create-event"
+                  className="dropdown_link"
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  Create Event
+                </Link>
+                <Link
+                  href="/dashboard"
+                  className="dropdown_link"
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  View Events
+                </Link>
                 <Link
                   href="/profile"
                   className="dropdown_link"
@@ -78,20 +99,13 @@ const Navbar = () => {
                 >
                   My Profile
                 </Link>
-                <Link
-                  href="/create-event"
-                  className="dropdown_link"
-                  onClick={() => setToggleDropdown(false)}
-                >
-                  Create Event
-                </Link>
                 <button
                   type="button"
                   onClick={() => {
                     setToggleDropdown(false);
                     signOut();
                   }}
-                  className="mt-5 w-full black_btn"
+                  className="px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white mb-5"
                 >
                   Sign Out
                 </button>

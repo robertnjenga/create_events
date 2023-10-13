@@ -17,8 +17,9 @@ const AttendeeSchema = new Schema({
     type: Boolean,
     default: false,
   },
-}); 
+});
 
 const Attendee = models.Attendee || model("Attendee", AttendeeSchema);
 
 export default Attendee;   
+

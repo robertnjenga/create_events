@@ -14,7 +14,7 @@ const RegisterEventPage = () => {
   const [event, setEvent] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [passcode, setPasscode] = useState('');
+
   const [error, seterror] = useState(false);
 
   const formatted = new Date(event.date).toLocaleDateString('en', {
@@ -60,6 +60,7 @@ const RegisterEventPage = () => {
       if (response.status === 200) {
         router.push('/dashboard');
       }
+      return response.json();
     } catch (error) {
       console.log(error);
     }
@@ -90,6 +91,7 @@ const RegisterEventPage = () => {
               <input
                 type="text"
                 placeholder="Name"
+                className="form_input"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -102,6 +104,7 @@ const RegisterEventPage = () => {
               <input
                 type="email"
                 placeholder="Email"
+                className="form_input"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required

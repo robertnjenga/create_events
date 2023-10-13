@@ -39,19 +39,19 @@ const Register = () => {
         <input
           type="text"
           placeholder="username"
-          className="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full mb-4"
+          className="form_input appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full mb-4"
           required
         />
         <input
           type="email"
           placeholder="email"
-          className="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full mb-4"
+          className="form_input appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full mb-4"
           required
         />
         <input
           type="password"
           placeholder="password"
-          className="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full mb-4"
+          className="form_input appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full mb-4"
           required
         />
         <button className="border border-black my-2 px-4 py-2 text-center bg-black w-full inline-block text-white transition-all  rounded-md hover:bg-white hover:text-black">

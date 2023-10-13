@@ -84,6 +84,9 @@ const handler = NextAuth({
       return user;
     },
   },
+  pages: {
+    signIn: '/dashboard/login',
+  },
   secret: process.env.NEXTAUTH_SECRET,
 });
 //   async signIn({ profile }) {

@@ -45,7 +45,7 @@ export const PATCH = async (req, { params }) => {
 };
 
 // DELETE (delete)
-export const DELETE = async (req, { params }) => {
+export const DELETE = async (req, { params }) => { 
   try {
     await connect();
 

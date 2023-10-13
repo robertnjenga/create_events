@@ -76,7 +76,7 @@ const Home = () => {
                     Add an upcoming event
                   </h2>
                   <p className="md:text-left text-center opacity-50">
-                    Create and manage your memorable events using Create Events
+                    Create and manage your memorable events using Eventful
                   </p>
                 </div>
               </div>

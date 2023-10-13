@@ -21,7 +21,7 @@ const EditEvent = () => {
   
   useEffect(() => {
     const getEventDetails = async () => {
-      const response = await fetch(`/api/event/${eventId}`); 
+      const response = await fetch(`/api/event/${eventId}`);  
       const data = await response.json();
 
       setEventTitle(data.title)
@@ -51,7 +51,7 @@ const EditEvent = () => {
         }),
       });
       if (response.ok) {
-        router.push('/dashboard'); 
+        router.push('/dashboard');  
       }
     } catch (error) {
       console.log(error);
