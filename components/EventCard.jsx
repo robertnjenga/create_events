@@ -142,11 +142,11 @@ const EventCard = ({ event, handleEdit, handleDelete }) => {
           >
             Delete
           </p>
-          <Link href={`/validate-event?id=${event._id}`}>
+          {/* <Link href={`/validate-event?id=${event._id}`}>
             <p className="font-inter text-sm green_gradient cursor-pointer">
               Validate
             </p>
-          </Link>
+          </Link> */}
         </div>
       )}
       {pathName === '/dashboard' && (
