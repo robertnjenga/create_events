@@ -50,6 +50,9 @@ const RegisterEventPage = () => {
     e.preventDefault();
     try {
       const response = await fetch(`/api/event/register/${eventId}`, {
+        next: {
+          revalidate: 60,
+        },
         method: 'POST',
         body: JSON.stringify({ name, email }),
         headers: {

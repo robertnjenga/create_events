@@ -23,6 +23,9 @@ const CreateEventPage = () => {
 
     try {
       const response = await fetch('/api/event/new', {
+        next: {
+          revalidate: 60,
+        },
         method: 'POST',
         body: JSON.stringify({
           userId: session?.user.id,
