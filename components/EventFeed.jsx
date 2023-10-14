@@ -1,4 +1,4 @@
-'use client';
+'use client'; 
 
 import { useState, useEffect } from 'react';
 import EventCard from './EventCard';
@@ -19,7 +19,11 @@ const EventFeed = () => {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const res = await fetch('/api/event');
+      const res = await fetch('/api/event', {
+        next: {
+          revalidate: 60,
+        },
+      });
       const data = await res.json();
       setEvents(data);
     };
