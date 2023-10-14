@@ -8,10 +8,6 @@ import { usePathname } from 'next/navigation';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// export const metadata = {
-//   title: 'Create Events',
-//   description: 'Event Ticketing System',
-// };
 
 const RootLayout = ({ children }) => {
   const pathname = usePathname();
