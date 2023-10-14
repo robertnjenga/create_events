@@ -21,7 +21,7 @@ const EventFeed = () => {
     const fetchEvents = async () => {
       const res = await fetch('/api/event', {
         next: {
-          revalidate: 10, cache: "no-store"
+          revalidate: 60,
         },
       });
       const data = await res.json();
