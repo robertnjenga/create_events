@@ -24,7 +24,7 @@ const CreateEventPage = () => {
     try {
       const response = await fetch('/api/event/new', {
         next: {
-          revalidate: 60,
+          revalidate: 10, cache: "no-store"
         },
         method: 'POST',
         body: JSON.stringify({
