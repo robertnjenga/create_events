@@ -110,14 +110,14 @@ export const POST = async (req, { params }) => {
 
     // send email with event details and passcode
     const transporter = nodemailer.createTransport({
-      pool: true,
+      // pool: true,
       service: 'hotmail',
-      port: 2525,
+      // port: 2525,
       auth: {
         user: 'njoro60@hotmail.com',
         pass: process.env.EMAIL_PASSWORD,
       },
-      maxConnections: 1
+      // maxConnections: 1
     });
     // console.log(event.attendees);
     const mailOptions = {
