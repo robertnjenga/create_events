@@ -138,7 +138,7 @@
 
 /* Profile Component */
 .profile {
-  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-row gap-2
+  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col sm:flex-row gap-2
 }
 
 /* Form Component */
