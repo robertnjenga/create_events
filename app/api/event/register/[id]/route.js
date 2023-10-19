@@ -114,7 +114,7 @@ export const POST = async (req, { params }) => {
       service: 'hotmail',
       // port: 2525,
       auth: {
-        user: 'njoro60@hotmail.com',
+        user: process.env.EMAIL_USERNAME,
         pass: process.env.EMAIL_PASSWORD,
       },
       // maxConnections: 1
