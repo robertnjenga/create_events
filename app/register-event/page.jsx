@@ -51,7 +51,7 @@ const RegisterEventPage = () => {
     try {
       const response = await fetch(`/api/event/register/${eventId}`, {
         next: {
-          revalidate: 60,
+          revalidate: 0,
         },
         method: 'POST',
         body: JSON.stringify({ name, email }),

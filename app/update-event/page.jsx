@@ -42,7 +42,7 @@ const EditEvent = () => {
     try {
       const response = await fetch(`/api/event/${eventId}`, {
         next: {
-          revalidate: 60,
+          revalidate: 0,
         },
         method: 'PATCH',
         body: JSON.stringify({
