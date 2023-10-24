@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 import Form from '@components/Form';
 
@@ -37,10 +38,12 @@ const CreateEventPage = () => {
         }),
       });
       if (response.ok) {
+        toast.success("Event created successfully");
         router.push('/dashboard');
+        router.refresh();
       }
     } catch (error) {
-      console.log(error);
+      toast.error("Error creating event: " + error.message);
     } finally {
       setSubmitting(false);
     }
