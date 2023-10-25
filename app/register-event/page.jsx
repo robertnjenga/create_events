@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 
+import { toast } from 'react-toastify';
+
 import { useRouter, useSearchParams } from 'next/navigation';
 import { convertTo12HourFormat } from '@utils/util';
 
@@ -61,11 +63,12 @@ const RegisterEventPage = () => {
         },
       });
       if (response.status === 200) {
+        toast.success("Registration successful");
         router.push('/dashboard');
       }
       return response.json();
     } catch (error) {
-      console.log(error);
+      toast.error("Registration Error: " + error.message);
     }
   };
 

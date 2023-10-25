@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 
+import { toast } from 'react-toastify';
+
 import { useRouter, useSearchParams } from 'next/navigation';
 
 import Form from '@components/Form';
@@ -54,10 +56,11 @@ const EditEvent = () => {
         }),
       });
       if (response.ok) {
+        toast.success("Update successful");
         router.push('/dashboard');
       }
     } catch (error) {
-      console.log(error);
+      toast.error("Error Updating: " + error.message);
     } finally {
       setSubmitting(false);
     }
@@ -82,4 +85,4 @@ const EditEvent = () => {
   );
 };
 
-export default EditEvent;
+export default EditEvent; 

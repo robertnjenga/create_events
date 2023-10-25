@@ -29,8 +29,8 @@ const RootLayout = ({ children }) => {
               </>
             )}
             <ToastContainer
-              position="bottom-right"
-              theme="dark"
+              position="top-right"
+              theme="light"
               autoClose={3000}
             />
           </main>

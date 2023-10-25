@@ -8,7 +8,7 @@ import { transporter, mailOptions } from '@config/nodemailer';
 const email = process.env.EMAIL;
 const pass = process.env.EMAIL_PASS;
 
-// process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const crypto = require('crypto');
 
